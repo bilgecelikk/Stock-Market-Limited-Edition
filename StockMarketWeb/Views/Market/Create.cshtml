@@ -1,0 +1,50 @@
+﻿@model StockData
+
+<div id="alertContainer" class="container mt-4"></div>
+
+
+<form method="post">
+	<div class="border p-4 mt-5">
+		<div class="row pb-2">
+			<h2 class="text-primary">
+				Add new stock
+			</h2>
+			<hr />
+		</div>
+		<div class="mb-4">
+			<label asp-for="Name"></label>
+			<input asp-for="Name" class="form-market"/>
+		</div>
+
+		<button type="submit" class="btn btn-outline-dark" style="width:150px">Submit</button>
+		<a asp-controller="Market" asp-action="Index" class="btn btn-outline-light" style="width:150px">
+			Back to list
+		</a>
+	</div>
+</form>
+
+@section Scripts {
+    <script>
+        // Display Bootstrap alert message
+        function displayAlert(type, message) {
+            var alertContainer = document.getElementById("alertContainer");
+
+            var alertHtml = `
+                        <div class="alert alert-dismissible ${type}">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            ${message}
+                        </div>
+                    `;
+
+            alertContainer.innerHTML = alertHtml;
+        }
+
+        // Check for TempData and display alert
+        var alertType = "@TempData["AlertType"]";
+        var alertMessage = "@Html.Raw(TempData["AlertMessage"])";
+
+        if (alertType && alertMessage) {
+            displayAlert(alertType, alertMessage);
+        }
+    </script>
+}

@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="jumbotron jumbotron-fluid custom-jumbotron text-light text-center">
+    <div class="container">
+        <h1 class="display-4">Welcome to Stock Market Web</h1>
+        <p class="lead" style="color: white;">Explore and analyze stock data with ease.</p>
+    </div>
+</div>
+
+<style>
+    .custom-jumbotron {
+        background: linear-gradient(180deg, #0A7543, #6C754D);
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Explore Stocks</h2>
+            <p>Discover a wide range of stock data, including historical prices, performance metrics, and more. Our user-friendly interface and powerful search capabilities make it simple to find the information you need.</p>
+            <p><a class="btn btn-secondary" asp-area="" asp-controller="Market" asp-action="Index">Explore Stocks &raquo;</a></p>
+        </div>
+    </div>
+
+    <hr class="mt-5 mb-4">
+</div>
